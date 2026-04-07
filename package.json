@@ -1,0 +1,13 @@
+{
+  "name": "demo-broken-newsletter-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal newsletter signup demo with an intentional frontend/backend payload mismatch.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
