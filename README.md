@@ -1,6 +1,6 @@
 # Newsletter App
 
-Minimal Express + static HTML app with OpsCompanion log forwarding wired in.
+Minimal Express + static HTML app with OpsCompanion log forwarding wired in. The signup flow is intentionally broken for demo purposes.
 
 ## Run
 
@@ -10,6 +10,13 @@ npm start
 ```
 
 Open http://localhost:3000 and submit any email.
+
+## Expected Demo Behavior
+
+- Frontend sends `{ "userEmail": "..." }`
+- Backend expects `{ "email": "..." }`
+- User sees `email is required`
+- OpsCompanion receives the frontend submit logs, the backend request logs, and the `newsletter_signup_failed` validation log
 
 ## OpsCompanion Logs
 
@@ -36,6 +43,7 @@ Useful events to search in OpsCompanion:
 - `frontend.event`
 - `http.request.started`
 - `http.request.completed`
+- `http.request.slow`
 - `newsletter_signup_succeeded`
 - `newsletter_signup_failed`
 - `db.query`

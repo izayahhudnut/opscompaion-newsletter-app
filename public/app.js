@@ -73,7 +73,7 @@ form.addEventListener("submit", async (event) => {
         "x-request-id": requestId
       },
       body: JSON.stringify({
-        email
+        userEmail: email
       })
     });
 
