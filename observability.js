@@ -193,8 +193,17 @@ function requestLogger(req, res, next) {
 
   res.on("finish", () => {
     const durationMs = Date.now() - startTime;
-    const level = res.statusCode >= 500 ? "ERROR" : durationMs >= SLOW_REQUEST_MS ? "WARN" : "INFO";
-    const eventName = durationMs >= SLOW_REQUEST_MS ? "http.request.slow" : "http.request.completed";
+    const isServerError = res.statusCode >= 500;
+    const isClientError = res.statusCode >= 400;
+    const isSlow = durationMs >= SLOW_REQUEST_MS;
+    const level = isServerError ? "ERROR" : isClientError || isSlow ? "WARN" : "INFO";
+    const eventName = isServerError
+      ? "http.request.failed"
+      : isClientError
+        ? "http.request.client_error"
+        : isSlow
+          ? "http.request.slow"
+          : "http.request.completed";
 
     emitLog(
       level,

@@ -118,7 +118,7 @@ app.post("/signup", (req, res) => {
 
   if (!email) {
     emitLog(
-      "WARN",
+      "ERROR",
       "newsletter_signup_failed",
       {
         error: "email is required",
