@@ -1,4 +1,4 @@
-# Demo Broken Newsletter App
+# Newsletter App
 
 Minimal Express + static HTML app that intentionally breaks newsletter signup.
 
