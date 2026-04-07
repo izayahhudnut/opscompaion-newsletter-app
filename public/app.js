@@ -107,7 +107,7 @@ form.addEventListener("submit", async (event) => {
         "x-request-id": requestContext.requestId || generateId()
       },
       body: JSON.stringify({
-        userEmail: email
+        email
       })
     });
 
@@ -127,12 +127,8 @@ form.addEventListener("submit", async (event) => {
         durationMs: requestDurationMs,
         slow: requestDurationMs >= 750,
         userVisibleMessage: response.ok ? null : result.error || "Something went wrong",
-        likelyCause: response.ok
-          ? null
-          : "Frontend sends `userEmail` while the backend expects `email`.",
-        fix: response.ok
-          ? null
-          : "Update the request body to send `{ email }` from the signup form."
+        likelyCause: null,
+        fix: null
       }
     );
 
