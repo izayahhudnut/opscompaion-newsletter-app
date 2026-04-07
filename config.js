@@ -46,5 +46,18 @@ function loadEnv() {
 loadEnv();
 
 module.exports = {
-  port: process.env.PORT || 3000
+  port: Number(process.env.PORT || 3000),
+  slowResponseMs: Number(process.env.SLOW_RESPONSE_MS || 750),
+  slowOperationMs: Number(process.env.SLOW_OPERATION_MS || 250),
+  welcomeEmailLatencyMs: Number(process.env.WELCOME_EMAIL_LATENCY_MS || 40),
+  subscriberAuditIntervalMs: Number(process.env.SUBSCRIBER_AUDIT_INTERVAL_MS || 300000),
+  failWelcomeEmail: process.env.FAIL_WELCOME_EMAIL === "true",
+  opsCompanionApiKey: process.env.OPSCOMPANION_API_KEY || "",
+  opsCompanionServiceName:
+    process.env.OPSCOMPANION_SERVICE_NAME || "demo-broken-newsletter-app",
+  opsCompanionEnv: process.env.OPSCOMPANION_ENV || "local",
+  opsCompanionLogsEndpoint:
+    process.env.OPSCOMPANION_LOGS_ENDPOINT || "https://otel.opscompanion.ai/v1/logs",
+  opsCompanionTracesEndpoint:
+    process.env.OPSCOMPANION_TRACES_ENDPOINT || "https://otel.opscompanion.ai/v1/traces"
 };
