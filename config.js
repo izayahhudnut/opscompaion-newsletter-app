@@ -46,8 +46,5 @@ function loadEnv() {
 loadEnv();
 
 module.exports = {
-  opsCompanionApiKey: process.env.OPSCOMPANION_API_KEY,
-  serviceName: process.env.OPSCOMPANION_SERVICE_NAME || "demo-broken-newsletter-app",
-  environment: process.env.OPSCOMPANION_ENV || process.env.NODE_ENV || "development",
   port: process.env.PORT || 3000
 };
