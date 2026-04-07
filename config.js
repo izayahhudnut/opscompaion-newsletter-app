@@ -53,8 +53,7 @@ module.exports = {
   subscriberAuditIntervalMs: Number(process.env.SUBSCRIBER_AUDIT_INTERVAL_MS || 300000),
   failWelcomeEmail: process.env.FAIL_WELCOME_EMAIL === "true",
   opsCompanionApiKey: process.env.OPSCOMPANION_API_KEY || "",
-  opsCompanionServiceName:
-    process.env.OPSCOMPANION_SERVICE_NAME || "demo-broken-newsletter-app",
+  opsCompanionServiceName: process.env.OPSCOMPANION_SERVICE_NAME || "newsletter",
   opsCompanionEnv: process.env.OPSCOMPANION_ENV || "local",
   opsCompanionLogsEndpoint:
     process.env.OPSCOMPANION_LOGS_ENDPOINT || "https://otel.opscompanion.ai/v1/logs",

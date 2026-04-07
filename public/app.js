@@ -117,15 +117,22 @@ form.addEventListener("submit", async (event) => {
     requestContext.requestId = result.requestId || response.headers.get("x-request-id");
 
     reportClientEvent(
-      response.ok ? "info" : "warn",
-      "api_request_finished",
+      response.ok ? "info" : "error",
+      response.ok ? "api_request_finished" : "api_request_failed",
       requestContext,
       {
         method: "POST",
         route: "/signup",
         statusCode: response.status,
         durationMs: requestDurationMs,
-        slow: requestDurationMs >= 750
+        slow: requestDurationMs >= 750,
+        userVisibleMessage: response.ok ? null : result.error || "Something went wrong",
+        likelyCause: response.ok
+          ? null
+          : "Frontend sends `userEmail` while the backend expects `email`.",
+        fix: response.ok
+          ? null
+          : "Update the request body to send `{ email }` from the signup form."
       }
     );
 

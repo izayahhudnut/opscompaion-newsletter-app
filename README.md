@@ -28,7 +28,7 @@ captured in the new logs and traces.
 ## Environment
 
 - `OPSCOMPANION_API_KEY`: API key for OTLP export to OpsCompanion
-- `OPSCOMPANION_SERVICE_NAME`: service label in OpsCompanion, default `demo-broken-newsletter-app`
+- `OPSCOMPANION_SERVICE_NAME`: service label in OpsCompanion, default `newsletter`
 - `OPSCOMPANION_ENV`: deployment environment label, default `local`
 - `OPSCOMPANION_LOGS_ENDPOINT`: OTLP logs endpoint, default `https://otel.opscompanion.ai/v1/logs`
 - `OPSCOMPANION_TRACES_ENDPOINT`: OTLP traces endpoint, default `https://otel.opscompanion.ai/v1/traces`

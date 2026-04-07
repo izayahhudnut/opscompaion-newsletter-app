@@ -109,8 +109,16 @@ app.post("/signup", async (req, res, next) => {
         const { email } = req.body;
 
         if (!email) {
-          logEvent("warn", "signup_rejected", {
-            reason: "missing_email"
+          recordError("signup_payload_mismatch", new Error("signup request missing `email`"), {
+            route: "/signup",
+            statusCode: 400,
+            reason: "missing_email",
+            userVisibleMessage: "email is required",
+            likelyCause:
+              "Frontend sends `userEmail` but backend expects `email` in the JSON body.",
+            fix:
+              "Send `{ email: value }` from the signup form or update the backend to accept `userEmail`.",
+            receivedBodyKeys: Object.keys(req.body || {})
           });
 
           return res.status(400).json({
